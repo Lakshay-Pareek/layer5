@@ -190,7 +190,7 @@ const KanvasButtonsWrapper = styled.div`
 
 const BannerSection = () => {
   return (
-    <BannerSectionWrapper>
+    <BannerSectionWrapper as="section" aria-label="Kanvas hero banner">
       <div className="banner-text">
         {/* <PageHeader title="Kanvasubtitle="take the blinders off" superscript="BETA" /> */}
         <h2>Step aside, YAML</h2>
