@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import KanvasWrapper from "./kanvas.style";
 import { Container } from "../../reusecore/Layout";
 import Features from "../../components/Features-carousel";
@@ -43,6 +44,47 @@ const Kanvas = (props) => {
 
   return (
     <KanvasWrapper>
+      <Helmet>
+        <title>Kanvas - Visual Cloud Native Infrastructure Designer | Kubernetes GUI</title>
+        <meta name="description" content="Kanvas is a visual designer for Kubernetes and cloud native infrastructure. Drag-and-drop cloud services, collaborate in real-time, and manage deployments without YAML." />
+        <meta name="keywords" content="Kubernetes designer, cloud native infrastructure, visual Kubernetes, GitOps, infrastructure as code, Kubernetes GUI, cloud management platform" />
+        <link rel="canonical" href="https://layer5.io/cloud-native-management/kanvas" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Kanvas - Visual Cloud Native Infrastructure Designer" />
+        <meta property="og:description" content="Design, deploy, and manage Kubernetes infrastructure visually. Drag-and-drop thousands of cloud components without writing YAML." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://layer5.io/cloud-native-management/kanvas" />
+        <meta property="og:image" content={designerImage} />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kanvas - Visual Cloud Native Infrastructure Designer" />
+        <meta name="twitter:description" content="Design, deploy, and manage Kubernetes infrastructure visually without YAML." />
+        <meta name="twitter:image" content={designerImage} />
+        
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Kanvas",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "description": "Visual designer for Kubernetes and cloud native infrastructure with drag-and-drop capabilities",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "reviewCount": "6"
+            }
+          })}
+        </script>
+      </Helmet>
       <div >
         <Container>
           <KanvasBanner />
@@ -57,11 +99,12 @@ const Kanvas = (props) => {
                   content: (
                     <img
                       src={designerImage}
-                      alt="Designer Mode"
+                      alt="Kanvas Designer Mode showing drag-and-drop Kubernetes infrastructure design interface"
                       className="designer-img modes-image"
                       width="100%"
                       height="auto"
                       style={{ aspectRatio: "16/9" }}
+                      loading="lazy"
                     />
                   ),
                 },
@@ -72,11 +115,12 @@ const Kanvas = (props) => {
                   content: (
                     <img
                       src={visualizerImage}
-                      alt="Operator Mode"
+                      alt="Kanvas Operator Mode displaying live Kubernetes cluster topology and monitoring"
                       className="modes-image"
                       width="100%"
                       height="auto"
                       style={{ aspectRatio: "16/9" }}
+                      loading="lazy"
                     />
                   ),
                 },
@@ -96,28 +140,28 @@ const Kanvas = (props) => {
                   title: "Design your deployments the way you want",
                   description: "Drag-and-drop your cloud native infrastructure using a palette of thousands of versioned Kubernetes components and Cloud services. Say goodbye to YAML configurations.",
                   imgContent: (
-                    <RoleBind1 id="design-image1" style={{ transform: "translateX(-2rem)" }} alt="design-image1" />
+                    <RoleBind1 id="design-image1" style={{ transform: "translateX(-2rem)" }} alt="design-image1" aria-label="Design your Kubernetes deployments visually" role="img" />
                   )
                 },
                 {
                   title: "Manage your applications visually and intuitively",
                   description: "Play with powerful features including context-aware designs and namespace configurations to easily manage all services.",
                   imgContent: (
-                    <RoleBind2 id="design-image2" alt="design-image2" />
+                    <RoleBind2 id="design-image2" alt="design-image2" aria-label="Visual Kubernetes application management interface" role="img" />
                   )
                 },
                 {
                   title: "Build the bridge",
                   description: "Go from developer handoffs to ongoing conversations with a shared language between design and development.",
                   imgContent: (
-                    <RoleBind3 id="design-image3" style={{ transform: "translateX(-2rem)" }} alt="design-image3" />
+                    <RoleBind3 id="design-image3" style={{ transform: "translateX(-2rem)" }} alt="design-image3" aria-label="Collaborative cloud native infrastructure design" role="img" />
                   )
                 },
                 {
                   title: "Stop finger-pointing",
                   description: "Make infrastructure and application management less about finger-pointing and more about collaborating.",
                   imgContent: (
-                    <RoleBind4 id="design-image4" style={{ transform: "translateX(-2rem)" }} alt="design-image4" />
+                    <RoleBind4 id="design-image4" style={{ transform: "translateX(-2rem)" }} alt="design-image4" aria-label="Team collaboration in Kubernetes management" role="img" />
                   )
                 },
               ]}/>
@@ -134,14 +178,14 @@ const Kanvas = (props) => {
                   title: "All your Kubernetes and Cloud infrastructure under a common management",
                   description: "Deploy designs, apply patterns, manage and operate your deployments and services in real-time.",
                   imgContent: (
-                    <Visualize1 id="visualize-image1" alt="visualize-image1" />
+                    <Visualize1 id="visualize-image1" alt="visualize-image1" aria-label="Unified Kubernetes and cloud infrastructure management dashboard" role="img" />
                   )
                 },
                 {
                   title: "Continuous visibility across all of your clusters and workloads.",
                   description: "Import your existing Kubernetes, Kustomize, Helm, or Docker Compose applications. Interactively connect to terminal sessions or initiate and search log streams from your containers.",
                   imgContent: (
-                    <Visualize2 id="visualize-image2" alt="visualize-image2" />
+                    <Visualize2 id="visualize-image2" alt="visualize-image2" aria-label="Real-time Kubernetes cluster monitoring and visibility" role="img" />
                   )
                 },
               ]} />
@@ -162,12 +206,13 @@ const Kanvas = (props) => {
                       <img
                         id="avatar-1"
                         src={Avatar1}
-                        alt=""
+                        alt="Team member collaborating on infrastructure design"
                         width="48"
                         height="48"
                         style={{ objectFit: "cover" }}
+                        loading="lazy"
                       />
-                      <Collab1 id="collaborate-image1" alt="collaborate-image1" />
+                      <Collab1 id="collaborate-image1" alt="collaborate-image1" aria-label="Real-time infrastructure design collaboration" role="img" />
                     </>
                   )
                   // Invite any Layer5 Cloud user, or all Meshery users, to work with you on a public design, including making changes and releasing new versions."
@@ -184,12 +229,13 @@ const Kanvas = (props) => {
                       <img
                         id="avatar-2"
                         src={Avatar2}
-                        alt="avatar-2"
+                        alt="Remote team collaboration on cloud infrastructure"
                         width="48"
                         height="48"
                         style={{ objectFit: "cover" }}
+                        loading="lazy"
                       />
-                      <Collab2 id="collaborate-image2" alt="collaborate-image2" />
+                      <Collab2 id="collaborate-image2" alt="collaborate-image2" aria-label="Iterative cloud native design workflow" role="img" />
                     </>
                   )
                 },
@@ -201,12 +247,13 @@ const Kanvas = (props) => {
                       <img
                         id="avatar-3"
                         src={Avatar3}
-                        alt="avatar-3"
+                        alt="Cross-functional team collaboration on Kubernetes"
                         width="48"
                         height="48"
                         style={{ objectFit: "cover" }}
+                        loading="lazy"
                       />
-                      <Collab3 id="collaborate-image3" alt="collaborate-image3" />
+                      <Collab3 id="collaborate-image3" alt="collaborate-image3" aria-label="Unified DevOps team communication" role="img" />
                     </>
                   )
                 },
@@ -222,12 +269,13 @@ const Kanvas = (props) => {
                       <img
                         id="avatar-3"
                         src={Avatar3}
-                        alt="avatar-3"
+                        alt="End-to-end infrastructure collaboration"
                         width="48"
                         height="48"
                         style={{ objectFit: "cover" }}
+                        loading="lazy"
                       />
-                      <Collab4 id="collaborate-image4" alt="collaborate-image4" />
+                      <Collab4 id="collaborate-image4" alt="collaborate-image4" aria-label="Comprehensive DevOps platform collaboration" role="img" />
                     </>
                   )
                 }
